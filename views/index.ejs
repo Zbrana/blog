@@ -1,0 +1,36 @@
+<%- include ('./partials/header') %>
+
+    <% blogs.forEach((blog) => { %>
+        <% if (blog.public == 'true') { %>
+        <hr style="margin-top: 0px; margin-bottom: 0px; border-top: 2px solid rgb(240, 240, 240);">
+        <a id="textLink" href="/blogs/<%= blog._id %>">
+        <div class="row" id="row" style="padding-top: 50px; padding-bottom: 50px;">
+        <div class="col-2 d-none d-xl-block">
+            <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blog.image %>">
+        </div>
+        <div class="col-2 d-none d-md-block">
+            <span>Date:</span><br>
+            <span style="font-family: 'Russo One', sans-serif;"><%=blog.created.toDateString()%></span><br><br>
+            Reading Time:<br>
+            <span style="font-family: 'Russo One', sans-serif;"><%=blog.reading%></span>
+        </div>
+            <div class="col-6 d-block d-md-none">
+                <span>Date:</span><br>
+                <span style="font-family: 'Russo One', sans-serif;"><%=blog.created.toDateString()%></span><br><br>
+                Reading Time:<br>
+                <span style="font-family: 'Russo One', sans-serif;"><%=blog.reading%></span>
+            </div>
+            <div class="col-6 d-block d-md-none">
+                <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blog.image %>">
+            </div>
+        <div class="col-xs-12 col-md-10 col-xl-8">
+            <br class="d-block d-md-none">
+            <h5 class="text-uppercase"><%=blog.title%></h5>
+            <p><%- blog.body.substring(0, 300) %>...</p>
+        </div>
+        </div>
+        </a>
+        <% } %>
+    <% }); %>
+
+<%- include('./partials/footer'); %>

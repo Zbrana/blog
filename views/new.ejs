@@ -1,0 +1,40 @@
+<%- include ('./partials/header') %>
+
+<h6><a class="btn btn-light" href="/admin">Back to Admin</a></h6>
+<div>
+    <h1 style="text-align: center;">New</h1>
+    <form action="/blogs" method="POST">
+        <div class="form-group">
+            <label><h6>Title:</h6></label>
+            <input class="form-control" type="text" name="blog[title]">
+        </div>
+        <div class="form-group">
+            <label><h6>Image:</h6></label>
+            <input class="form-control" type="text" name="blog[image]">
+        </div>
+        <div class="form-group">
+            <label><h6>Date:</h6></label>
+            <input class="form-control" type="date" name="blog[created]">
+        </div>
+        <div class="form-group">
+            <label><h6>Reading Time:</h6></label>
+            <input class="form-control" type="text" name="blog[reading]">
+        </div>
+        <div class="form-group">
+            <label><h6>Blog Content:</h6></label>
+            <textarea class="form-control" name="blog[body]" rows="30"></textarea>
+        </div>
+        <label><h6>Public:</h6></label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="blog[public]" value="true" checked>
+            <label>Yes</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="blog[public]" value="false">
+            <label>No</label>
+          </div>
+        <h6><input class="btn btn-light" type="submit"></h6>
+    </form>
+</div>
+
+<%- include('./partials/footer'); %>
