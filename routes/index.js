@@ -5,13 +5,14 @@ const User = require("../models/user");
 const middleware = require("../middleware");
 const Blog = require("../models/blog");
 
-router.get("/", (req, res) => res.redirect("/blogs"));
+router.get("/", (req, res) => res.redirect("/1"));
 
 router.get("/admin", middleware.isLoggedIn, (req, res) => {
     Blog.find({}, (err, blogs) => {
         if (err) {
             console.log(err);
         } else {
+            blogs = blogs.sort(middleware.compare);
             res.render("admin", {blogs: blogs});
         }
     })

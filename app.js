@@ -38,7 +38,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use("/", indexRoutes);
-app.use("/blogs", blogRoutes);
+app.use("/", blogRoutes);
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -51,11 +51,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/uploadImage', upload.single('image'), (req, res) => {
+app.post('/uploads/uploadImage', upload.single('image'), (req, res) => {
     res.redirect('images');
 });
 
-app.get('/images', middleware.isLoggedIn, (req, res) => {
+app.get('/uploads/images', middleware.isLoggedIn, (req, res) => {
     fs.readdir("public/images", (err, images) => {
         res.render("images", {images: images});
     });

@@ -3,7 +3,7 @@
 <h6><a class="btn btn-light" href="/admin">Back to Admin</a></h6>
 <div>
     <h1 style="text-align: center;">Edit</h1>
-    <form action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
+    <form action="/<%= blog._id %>?_method=PUT" method="POST">
         <div class="form-group">
             <label><h6>Title:</h6></label>
             <input class="form-control" type="text" name="blog[title]" value="<%= blog.title %>">

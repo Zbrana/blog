@@ -4,14 +4,14 @@
     <h1 style="text-align: center;">Admin</h1><br>
     <div class="row">
         <div class="col-4">
-            <h6><a style="display: inline;" class="btn btn-light" href="/blogs/new" class="item">New Post</a><br><br><br></h6>
+            <h6><a style="display: inline;" class="btn btn-light" href="/new" class="item">New Post</a><br><br><br></h6>
             <div class="form-group">
-                <form action="/uploadImage" method="POST" enctype="multipart/form-data">
+                <form action="/uploads/uploadImage" method="POST" enctype="multipart/form-data">
                     <input class="form-control-file" type="file" accept="image/*" name="image">
                     <h6><input class="btn btn-light" type="submit" value="Upload an Image"></h6>
                 </form>
             </div><br>
-            <h6><a class="btn btn-light" href="../images">Gallery</a></h6>
+            <h6><a class="btn btn-light" href="../uploads/images">Gallery</a></h6>
         </div>
     <div class="col-8">
     <h6>Articles:</h6><br>
@@ -22,8 +22,8 @@
                     <div>
                         <span><%= blog.title %></span>
                         <div>
-                            <h6 style="display: inline;"><a class="btn btn-light" href="/blogs/<%= blog._id %>/edit">Edit</a></h6>
-                            <form style="display: inline;" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                            <h6 style="display: inline;"><a class="btn btn-light" href="/<%= blog._id %>/edit">Edit</a></h6>
+                            <form style="display: inline;" action="/<%= blog._id %>?_method=DELETE" method="POST">
                                 <h6 style="display: inline;"><button class="btn btn-light">Delete</button></h6>
                             </form>
                         </div>
