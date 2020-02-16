@@ -1,7 +1,6 @@
 <%- include ('./partials/header') %>
 
         <% for (var i = 0; i < blogs.length; i++) { %>
-            <% if (blogs[i].public == 'true') { %>
                 <hr style="margin-top: 0px; margin-bottom: 0px; border-top: 2px solid rgb(240, 240, 240);">
                 <% let titleTemp = blogs[i].title.split(' ').join('-'); %>
                 <a id="textLink" href="/<%= titleTemp %>">
@@ -31,7 +30,6 @@
                 </div>
                 </div>
                 </a>
-                <% } %>
         <% } %>
     <br>
     <nav>

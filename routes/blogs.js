@@ -5,7 +5,15 @@ const middleware = require("../middleware");
 
 router.get("/:temp", (req, res, next) => {
     if (isNaN(req.params.temp)) {
-        renderArticle(req.params.temp, res);
+        if (req.params.temp == 'new') {
+            if (req.isAuthenticated()) {
+                res.render("new");
+            } else {
+                res.redirect("/login");
+            }
+        } else {
+            renderArticle(req.params.temp, res);
+        }
     } else {
         renderArticles(req.params.temp, res);
     }
@@ -44,14 +52,14 @@ function renderArticles(currentPage, res) {
     })
 }
 
-router.get("/new", middleware.isLoggedIn, (req, res) => res.render("new"));
+//router.get("/new", middleware.isLoggedIn, (req, res) => res.render("new"));
 
 router.post("/", (req, res) => {
     Blog.create(req.body.blog, (err, newBlog) => {
         if (err) {
             res.render("new");
         } else {
-            res.redirect("/admin");
+            res.redirect("/admin/1");
         }
     });
 });
@@ -79,9 +87,9 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
    Blog.findByIdAndRemove(req.params.id, (err) => {
        if (err) {
-           res.redirect("/admin");
+           res.redirect("/admin/1");
        } else {
-           res.redirect("/admin");
+           res.redirect("/admin/1");
        }
    })
 });

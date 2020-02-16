@@ -14,24 +14,48 @@
             <h6><a class="btn btn-light" href="../uploads/images">Gallery</a></h6>
         </div>
     <div class="col-8">
-    <h6>Articles:</h6><br>
-    <div>
-        <div>
-            <% blogs.forEach(function(blog){ %>
+    <h5>Articles:</h5><br>
+        <% for (var i = 0; i < blogs.length; i++) { %>
+                <span class="text-uppercase"></h6><%= blogs[i].title %></span>
                 <div>
-                    <div>
-                        <span><%= blog.title %></span>
-                        <div>
-                            <h6 style="display: inline;"><a class="btn btn-light" href="/<%= blog._id %>/edit">Edit</a></h6>
-                            <form style="display: inline;" action="/<%= blog._id %>?_method=DELETE" method="POST">
-                                <h6 style="display: inline;"><button class="btn btn-light">Delete</button></h6>
-                            </form>
-                        </div>
-                    </div>
+                    <h6 style="display: inline;"><a class="btn btn-light" href="/<%= blogs[i]._id %>/edit">Edit</a></h6>
+                    <form style="display: inline;" action="/<%= blogs[i]._id %>?_method=DELETE" method="POST">
+                        <h6 style="display: inline;"><button class="btn btn-light">Delete</button></h6>
+                    </form>
                 </div>
                 <hr>
-            <% }) %>
-        </div>
+    <% } %>
+    <br>
+        <nav>
+            <% if (pages > 0) { %>
+                <ul class="pagination justify-content-center pg-dark">
+                    <% if (current == 1) { %>
+                        <li class="disabled page-item"><a class="page-link text-dark">First</a></li>
+                    <% } else { %>
+                        <li class="page-item"><a class="page-link text-dark" href="/admin/1">First</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled page-item"><a class="page-link text-dark">...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active page-item"><a class="page-link text-dark"><%= i %></a></li>
+                        <% } else { %>
+                            <li class="page-item"><a class="page-link text-dark" href="/admin/<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled page-item"><a class="page-link text-dark">...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled page-item"><a class="page-link text-dark">Last</a></li>
+                    <% } else { %>
+                        <li class="page-item"><a class="page-link text-dark" href="/admin/<%= pages %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+            </nav>
     </div>
 </div>
 </div>

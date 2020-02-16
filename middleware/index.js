@@ -5,7 +5,6 @@ module.exports = {
         if(req.isAuthenticated()){
             return next();
         }
-        req.flash("error", "You must be signed in to do that!");
         res.redirect("/login");
     },
     compare: (a, b) => {
