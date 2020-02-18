@@ -37,7 +37,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use("/", indexRoutes);
+app.use("/admin", indexRoutes);
 app.use("/", blogRoutes);
 
 const storage = multer.diskStorage({

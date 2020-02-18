@@ -5,7 +5,7 @@ module.exports = {
         if(req.isAuthenticated()){
             return next();
         }
-        res.redirect("/login");
+        res.redirect("/admin/login");
     },
     compare: (a, b) => {
         let comparison = 0;

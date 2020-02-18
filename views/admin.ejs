@@ -11,7 +11,7 @@
                     <h6><input class="btn btn-light" type="submit" value="Upload an Image"></h6>
                 </form>
             </div><br>
-            <h6><a class="btn btn-light" href="../uploads/images">Gallery</a></h6>
+            <h6><a class="btn btn-light" href="../../uploads/images">Gallery</a></h6>
         </div>
     <div class="col-8">
     <h5>Articles:</h5><br>
@@ -32,7 +32,7 @@
                     <% if (current == 1) { %>
                         <li class="disabled page-item"><a class="page-link text-dark">First</a></li>
                     <% } else { %>
-                        <li class="page-item"><a class="page-link text-dark" href="/admin/1">First</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="/admin/index/1">First</a></li>
                     <% } %>
                     <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
                     <% if (i !== 1) { %>
@@ -42,7 +42,7 @@
                         <% if (i == current) { %>
                             <li class="active page-item"><a class="page-link text-dark"><%= i %></a></li>
                         <% } else { %>
-                            <li class="page-item"><a class="page-link text-dark" href="/admin/<%= i %>"><%= i %></a></li>
+                            <li class="page-item"><a class="page-link text-dark" href="/admin/index/<%= i %>"><%= i %></a></li>
                         <% } %>
                         <% if (i == Number(current) + 4 && i < pages) { %>
                             <li class="disabled page-item"><a class="page-link text-dark">...</a></li>
@@ -51,7 +51,7 @@
                     <% if (current == pages) { %>
                         <li class="disabled page-item"><a class="page-link text-dark">Last</a></li>
                     <% } else { %>
-                        <li class="page-item"><a class="page-link text-dark" href="/admin/<%= pages %>">Last</a></li>
+                        <li class="page-item"><a class="page-link text-dark" href="/admin/index/<%= pages %>">Last</a></li>
                     <% } %>
                 </ul>
             <% } %>
