@@ -8,21 +8,17 @@ const Blog = require("../models/blog");
 router.get("/index", (req, res) => res.redirect("/admin/index/1"));
 
 router.get("/index/:temp", middleware.isLoggedIn, (req, res) => {
-    renderArticles(req.params.temp, res);
-});
-
-function renderArticles(currentPage, res) {
     let perPage = 5;
-    let page = currentPage || 1;
+    let page = req.params.temp || 1;
 
     Blog
     .find({ })
+    .sort({ created: -1 })
     .skip((perPage * page) - perPage)
     .limit(perPage)
     .exec((err, blogs) => {
         Blog.countDocuments().exec((err, count) => {
             if (err) return next(err);
-            blogs = blogs.sort(middleware.compare);
             res.render("admin", {
                 blogs: blogs,
                 current: page,
@@ -30,7 +26,7 @@ function renderArticles(currentPage, res) {
             })
         })
     })
-}
+});
 
 router.get("/register", (req, res) => {
     res.render("register"); 
