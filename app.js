@@ -1,6 +1,5 @@
 const express = require("express"),
       app = express(),
-      port = 3000,
       bodyParser = require("body-parser"),
       mongoose = require('mongoose'),
       methodOverride = require("method-override"),
@@ -17,6 +16,11 @@ const express = require("express"),
 
 const blogRoutes = require("./routes/blogs"),
       indexRoutes = require("./routes/index");
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
 
 mongoose.connect("mongodb+srv://BliXer:stfumiabot268@blog-47rde.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 app.set("view engine", "ejs");
