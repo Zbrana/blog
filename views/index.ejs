@@ -8,23 +8,23 @@
                 <div class="col-2 d-none d-xl-block">
                     <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blogs[i].image %>">
                 </div>
-                <div class="col-2 d-none d-md-block">
+                <div class="col-2 d-none d-xl-block">
                     <span>Date:</span><br>
                     <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></span><br><br>
                     Reading Time:<br>
                     <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading%></span>
                 </div>
-                    <div class="col-6 d-block d-md-none">
-                        <span>Date:</span><br>
-                        <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></span><br><br>
-                        Reading Time:<br>
-                        <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading %></span>
-                    </div>
-                    <div class="col-6 d-block d-md-none">
-                        <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blogs[i].image %>">
-                    </div>
-                <div class="col-xs-12 col-md-10 col-xl-8">
-                    <br class="d-block d-md-none">
+                <div class="col-4 col-md-3 col-lg-2 d-block d-xl-none">
+                    <span>Date:</span><br>
+                    <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></span><br><br>
+                    Reading Time:<br>
+                    <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading %></span>
+                </div>
+                <div class="col-8 col-md-9 col-lg-10 d-block d-xl-none">
+                    <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blogs[i].image %>">
+                </div>
+                <div class="col-xs-12 col-xl-8">
+                    <br class="d-block d-xl-none">
                     <h5 class="text-uppercase"><%= blogs[i].title %></h5>
                     <p><%- blogs[i].body.substring(0, 300) %>...</p>
                 </div>

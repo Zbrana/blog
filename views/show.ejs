@@ -6,5 +6,11 @@
     <img src="<%= blog.image %>"><br><br>
     <%- blog.body %>
 </div>
-
+<script>
+    let images = document.getElementsByTagName("img");
+    for (let img of images) {
+        img.classList.add('d-block');
+        img.classList.add('mx-auto');
+    }
+</script>
 <%- include('./partials/footer'); %>
