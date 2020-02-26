@@ -20,12 +20,13 @@ i:hover {
     padding: 20%;
 }
 
-#textLink {
+.textLink {
     color: black;
 }
 
-#textLink:hover {
+.textLink:hover {
     text-decoration: none;
+    color: black;
 }
 
 ul {
@@ -44,12 +45,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Russo One', sans-serif;
 }
 
-#row {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-#row:hover {
+.row:hover {
     background-color: rgb(240, 240, 240);
 }
 

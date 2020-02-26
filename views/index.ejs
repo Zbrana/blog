@@ -1,38 +1,36 @@
 <%- include ('./partials/header') %>
 
         <% for (var i = 0; i < blogs.length; i++) { %>
-                <hr style="margin-top: 0px; margin-bottom: 0px; border-top: 2px solid rgb(240, 240, 240);">
                 <% let titleTemp = blogs[i].title.split(' ').join('-'); %>
-                <a id="textLink" href="/<%= titleTemp %>">
-                <div class="row" id="row" style="padding-top: 50px; padding-bottom: 50px;">
+                <a class="textLink" href="/<%= titleTemp %>">
+                <div class="row py-4" class="row" style="border-bottom: 2px solid rgb(240, 240, 240);">
                 <div class="col-2 d-none d-xl-block">
-                    <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blogs[i].image %>">
+                    <img style="width: 150px; height: 150px; border-radius: 10px;" alt="" src="<%= blogs[i].image %>">
                 </div>
                 <div class="col-2 d-none d-xl-block">
-                    <span>Date:</span><br>
-                    <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></span><br><br>
-                    Reading Time:<br>
-                    <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading%></span>
+                    Date:
+                    <p style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></p>
+                    Reading Time:
+                    <p style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading%></p>
                 </div>
                 <div class="col-4 col-md-3 col-lg-2 d-block d-xl-none">
-                    <span>Date:</span><br>
-                    <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></span><br><br>
-                    Reading Time:<br>
-                    <span style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading %></span>
+                    Date:
+                    <p style="font-family: 'Russo One', sans-serif;"><%= blogs[i].created.toDateString() %></p>
+                    Reading Time:
+                    <p style="font-family: 'Russo One', sans-serif;"><%= blogs[i].reading %></p>
                 </div>
                 <div class="col-8 col-md-9 col-lg-10 d-block d-xl-none">
-                    <img style="width: 150px; height: 150px; border-radius: 10px;" src="<%= blogs[i].image %>">
+                    <img style="width: 150px; height: 150px; border-radius: 10px;" alt="" src="<%= blogs[i].image %>">
                 </div>
-                <div class="col-xs-12 col-xl-8">
-                    <br class="d-block d-xl-none">
+                <div class="col-xs-12 col-xl-8 pt-4 pt-xl-0" style="text-align: justify;">
                     <h5 class="text-uppercase"><%= blogs[i].title %></h5>
                     <p><%- blogs[i].body.substring(0, 300) %>...</p>
                 </div>
                 </div>
                 </a>
         <% } %>
-    <br>
-    <nav>
+
+    <nav class="mt-4">
     <% if (pages > 0) { %>
         <ul class="pagination justify-content-center pg-dark">
             <% if (current == 1) { %>
