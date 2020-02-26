@@ -8,16 +8,12 @@ i {
     text-align: center;
     height: 60px;
     width: 60px;
-    padding: 8%;
+    padding: 12px 0px 0px 0px;
 }
 
 i:hover {
     color: white;
     background-color: black;
-}
-
-.vertical {
-    padding: 20%;
 }
 
 .textLink {
