@@ -1,10 +1,11 @@
 <%- include ('./partials/header') %>
 
-<hr style="margin-top: 0px; margin-bottom: 0px; border-top: 2px solid rgb(240, 240, 240);">
-<div style="padding-top: 50px;">
-    <h1 class="text-uppercase" style="text-align: center;"><%= blog.title %></h1><br>
-    <img src="<%= blog.image %>"><br><br>
-    <%- blog.body %>
+<div class="row mt-5">
+    <div class="col-12">
+        <h1 class="text-uppercase" style="text-align: center;"><%= blog.title %></h1>
+        <img class="my-5" src="<%= blog.image %>">
+        <%- blog.body %>
+    </div>
 </div>
 <script>
     let images = document.getElementsByTagName("img");
