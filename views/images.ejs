@@ -1,10 +1,12 @@
 <%- include ('./partials/header') %>
 
-<h6><a class="btn btn-light" href="/admin/index">Back to Admin</a></h6>
+<h6><a class="btn btn-light my-3" href="/admin/index">Back to Admin</a></h6>
+<div class="row">
 <% images.forEach((image) => { %>
     <a target="_blank" href="/images/<%= image %>">
-        <img style="height: 350px; width: 350px; display: inline; float: left; margin: 20px; padding: 20px;" src="/images/<%= image %>">
+        <img style="height: 250px; width: 250px; display: inline; float: left; margin: 10px; padding: 10px;" src="/images/<%= image %>">
     </a>
 <% }); %>
+</div>
 
 <%- include('./partials/footer'); %>

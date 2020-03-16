@@ -1,7 +1,7 @@
 <%- include ('./partials/header') %>
 
 <div>
-    <h1 style="text-align: center;">Admin</h1><br>
+    <h1 class="my-3" style="text-align: center;">Admin</h1><br>
     <div class="row">
         <div class="col-4">
             <h6><a style="display: inline;" class="btn btn-light" href="/new" class="item">New Post</a><br><br><br></h6>
@@ -16,12 +16,14 @@
     <div class="col-8">
     <h5>Articles:</h5><br>
         <% for (var i = 0; i < blogs.length; i++) { %>
+            <% let titleTemp = blogs[i].title.split(' ').join('-'); %>
                 <span class="text-uppercase"></h6><%= blogs[i].title %></span>
                 <div>
-                    <h6 style="display: inline;"><a class="btn btn-light" href="/<%= blogs[i]._id %>/edit">Edit</a></h6>
+                    <h6 style="display: inline;"><a class="btn btn-light" target="_blank" href="/<%= blogs[i]._id %>/edit">Edit</a></h6>
                     <form style="display: inline;" action="/<%= blogs[i]._id %>?_method=DELETE" method="POST">
                         <h6 style="display: inline;"><button class="btn btn-light">Delete</button></h6>
                     </form>
+                    <h6 style="display: inline;"><a class="btn btn-light" target="_blank" href="/<%= titleTemp %>">Preview</a></h6>
                 </div>
                 <hr>
     <% } %>

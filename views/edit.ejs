@@ -1,6 +1,8 @@
 <%- include ('./partials/header') %>
+<% let titleTemp = blog.title.split(' ').join('-'); %>
 
-<h6><a class="btn btn-light" href="/admin/index">Back to Admin</a></h6>
+<h6><a class="btn btn-light my-3" href="/admin/index">Back to Admin</a></h6>
+<h6 style="display: inline;"><a class="btn btn-light" target="_blank" href="/<%= titleTemp %>">Preview</a></h6>
 <div>
     <h1 style="text-align: center;">Edit</h1>
     <form action="/<%= blog._id %>?_method=PUT" method="POST">
@@ -24,6 +26,10 @@
             <label><h6>Blog Content:</h6></label>
             <textarea class="form-control" name="blog[body]" rows="30"><%= blog.body %></textarea>
         </div>
+        <p>
+            <h6>Words: </h6>
+            <span id="words"></span>
+        </p>
         <label><h6>Public:</h6></label>
         <% if (blog.public == 'true') { %>
             <div class="form-check">

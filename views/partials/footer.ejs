@@ -14,4 +14,13 @@
             </div>
         </footer>
     </body>
+    <script>
+        const textarea = document.querySelector("textarea");
+        const wordsSpan = document.getElementById("words");
+
+        textarea.addEventListener("input", event => {
+            const numberOfWords = event.currentTarget.value.split(' ').length;
+            wordsSpan.textContent = numberOfWords;
+        });
+    </script>
 </html>
