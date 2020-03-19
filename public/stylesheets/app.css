@@ -54,3 +54,7 @@ img {
     background-color: #dee2e6;
     border-color: #dee2e6;
 }
+
+#article p {
+    text-align: justify;
+}
