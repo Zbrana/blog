@@ -22,9 +22,9 @@
                 <div class="col-6 col-md-9 col-lg-10 d-block d-xl-none">
                     <img style="width: 150px; height: 150px; border-radius: 10px;" alt="" src="<%= blogs[i].image %>">
                 </div>
-                <div class="col-xs-12 col-xl-8 pt-4 pt-xl-0" style="text-align: justify;">
+                <div class="col-xs-12 col-xl-8 pt-4 pt-xl-0">
                     <h5 class="text-uppercase"><%= blogs[i].title %></h5>
-                    <p><%- blogs[i].body.substring(0, 300) %>...</p>
+                    <div style="text-align: justify;"><%- blogs[i].body.substring(0, 300) %>...</div>
                 </div>
                 </div>
                 </a>
