@@ -3,27 +3,16 @@ const router  = express.Router();
 const Blog = require("../models/blog");
 const middleware = require("../middleware");
 
-router.get("/", (req, res) => res.redirect("/articles/1"));
-
 router.get("/new", middleware.isLoggedIn, (req, res) => res.render("new"));
 
-router.get("/articles/:page", (req, res, next) => {
-    let perPage = 5;
-    let page = req.params.page || 1;
-    
+router.get("/", (req, res, next) => {    
     Blog
     .find({ public: 'true' })
     .sort({ created: -1 })
-    .skip((perPage * page) - perPage)
-    .limit(perPage)
     .exec((err, blogs) => {
-        Blog.countDocuments({ public: 'true' }).exec((err, count) => {
-            if (err) return next(err);
-            res.render("index", {
-                blogs: blogs,
-                current: page,
-                pages: Math.ceil(count / perPage)
-            })
+        if (err) return next(err);
+        res.render("index", {
+            blogs: blogs
         })
     })
 })

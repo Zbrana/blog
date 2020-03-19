@@ -54,4 +54,23 @@
     </form>
 </div>
 
+<script>
+    const textarea = document.querySelector("textarea");
+    const wordsSpan = document.getElementById("words");
+    wordsSpan.textContent = textarea.value.split(' ').length;
+    const wordsPerMinute = 200;
+    let result;
+
+    textarea.addEventListener("input", event => {
+        const numberOfWords = event.currentTarget.value.split(' ').length;
+        wordsSpan.textContent = numberOfWords;
+        
+        if (numberOfWords > 0) {
+          let value = Math.ceil(numberOfWords / wordsPerMinute);
+          result = `${value} minutes`;
+        }
+        document.getElementById("reading").value = result;
+    });
+</script>
+
 <%- include ('./partials/footer') %>
