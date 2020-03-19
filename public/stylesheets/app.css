@@ -58,3 +58,7 @@ img {
 #article p {
     text-align: justify;
 }
+
+#article h2 {
+    text-transform: uppercase;
+}
