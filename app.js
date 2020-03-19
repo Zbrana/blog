@@ -12,7 +12,6 @@ const express = require("express"),
       session = require("express-session"),
       multer = require('multer'),
       fs = require('fs'),
-      imageThumbnail = require('image-thumbnail'),
       middleware = require("./middleware");
 
 const blogRoutes = require("./routes/blogs"),
