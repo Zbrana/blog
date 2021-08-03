@@ -3,7 +3,7 @@
         <% for (var i = 0; i < blogs.length; i++) { %>
                 <% let titleTemp = blogs[i].title.split(' ').join('-'); %>
                 <a class="textLink" href="/<%= titleTemp %>">
-                <div class="row py-4 articles">
+                <div class="row py-4 articles" style="border-bottom: 2px solid rgb(240, 240, 240);">
                 <div class="col-2 d-none d-xl-block">
                     <img style="width: 150px; height: 150px; border-radius: 10px;" alt="" src="<%= blogs[i].image %>">
                 </div>

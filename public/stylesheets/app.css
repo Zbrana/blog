@@ -42,8 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .articles:hover {
-    background-color: #E8A87C;
-    border-radius: 25px;
+    background-color: rgb(240, 240, 240);
 }
 
 img {
